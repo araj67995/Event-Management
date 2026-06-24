@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <!-- admin dashboard -->
+
+    <!-- top -->
+    <div class="top">
+      <p>Admin Dashboard</p>
+      <a href="login.html" class="logout">Logout</a>
+    </div>
+
+    <!-- main -->
+    <div class="main">
+      <h2>Welcome, Admin!</h2>
+      <p>Here you can manage users, events, and bookings.</p>
+    </div>
+
+    <!-- action card  -->
+     <div class="action">
+        <!-- option to select -->
+        <div class="option">
+            <button class="" >Events</button>
+            <button>Users</button>
+            <button>Bookings</button>
+            <button>Revenue</button>
+        </div>
+       
+        <!-- action that will preform -->
+         <!-- 1 events -->
+          <div class="events">
+            <div class="event-options">
+                <button>Upcoming Events</button>
+                <button>Past Events</button>
+            </div>
+
+            <!-- upcoming event -->
+            <div class="upcoming-events">
+                 <table>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Event Type</th> 
+                        <th>Event Location</th>
+                        <th>Event Date</th>
+                        <th>Detail</th>
+                    </tr>
+                    <tr>
+                        <td>Annual</td>
+                        <td>Private</td>
+                        <td>patna</td>
+                        <td>05/60/26</td>
+                        <td>To see</td>
+                    </tr>
+                    <tr>
+                        <td>Annual</td>
+                        <td>Private</td>
+                        <td>patna</td>
+                        <td>05/60/26</td>
+                        <td>500000</td>
+                    </tr>
+                 </table>
+            </div>
+
+            <!-- Past Event -->
+            <div class="past-events">
+                 <table>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Event Type</th> 
+                        <th>Event Location</th>
+                        <th>Event Date</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr>
+                        <td>Annual</td>
+                        <td>Private</td>
+                        <td>patna</td>
+                        <td>05/60/26</td>
+                        <td>3 lack</td>
+                    </tr>
+                    <tr>
+                        <td>Annual</td>
+                        <td>Private</td>
+                        <td>patna</td>
+                        <td>05/60/26</td>
+                        <td>500000</td>
+                    </tr>
+                 </table>
+            </div>
+          </div>
+
+          <!-- user details  -->
+           <div class="user-detail">
+            <div class="search">
+                <input type="text" name="search" placeholder="Enter the name" required>
+                <button type="submit">Search icon</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Events</th>
+                    <th>Due</th>
+                </tr>
+                <tr>
+                    <td>AdityA</td>
+                    <td>88888888</td>
+                    <td>6</td>
+                    <td>82100</td>
+                </tr>
+                  <tr>
+                    <td>AdityA</td>
+                    <td>88888888</td>
+                    <td>6</td>
+                    <td>82100</td>
+                </tr>
+            </table>
+           </div>
+
+           <!-- BooKings -->
+            <div class="booking-detail">
+                <div class="booking-selecter">
+                    <button>Pending Booking</button>
+                    <button>Quick Book</button>
+                </div>
+
+                <!-- Pending Booking -->
+                 <div class="pending-bookings">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>Aditya</td>
+                            <td>441121515</td>
+                            <td>05/86/26</td>
+                            <th>eye option</th>
+                        </tr>
+                        <tr>
+                            <td>Aditya</td>
+                            <td>441121515</td>
+                            <td>05/86/26</td>
+                            <th>eye option</th>
+                        </tr>
+                    </table>
+                 </div>
+
+                 <!-- Quick Booking -->
+                 <div class="quick-book">
+                    <lable for="name"></lable>
+                    <input type="text" name="name" required value="">
+
+                    <lable for="contact"></lable>
+                    <input type="number" name="contact" value="" required>
+
+                    <lable for="email"></lable>
+                    <input type="email" name="email" value="" required>
+
+                    <label for="event-name">Event Name</label>
+                    <input type="text" id="evnt-name" name="event-name" required>
+
+                     <label for="event-type">Event Type:</label>
+                        <select id="event-type" name="event-type" required>
+                            <option value="">Select an event type</option>
+                            <option value="conference">Conference</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="party">Party</option>
+                            <option value="concert">Concert</option>
+                        </select>
+
+                        <label for="event-location">Event Location:</label>
+                        <input type="text" id="event-location" name="event-location" required>
+
+                        <label for="event-date">Event Date:</label>
+                        <input type="date" id="event-date" name="event-date" required>
+
+                        <label for="visibility"></label>
+                        <input type="radio" name="visiblity" value="Public">Public
+                        <input type="radio" name="visiblity" value="Private">Private
+
+                        <label for="ticket"></label>
+                        <input type="radio" name="ticket" value="Yes">Yes 
+                        <input type="radio" name="ticket" value="No">No
+
+                        <label for="event-details">Event Details:</label>
+                        <textarea id="event-details" name="event-details" rows="4" required></textarea>
+
+                        <button type="">Book</button>
+                 </div>
+            </div>
+
+            <!-- Revenue -->
+            <div class="revenue">
+                <div class="select-month">
+                    <input type="month" name="month" required>
+                    <button>Search icon</button>
+                </div>
+               <div class="details">
+                <p><strong>Total Event: </strong>50</p>
+                <p><strong>Pending Event:</strong>10</p>
+                <p><Strong>Completed Event:</Strong>40</p>
+                <p><strong>Total Revenue: </strong>50 lack</p>
+                <p><strong>Due: </strong>23 lack</p>
+               </div>
+            </div>
+     </div>
+
+     <!-- Pop up for pending Bookings -->
+      <div class="popup">
+         <lable for="name"></lable>
+                    <input type="text" name="name" required value="">
+
+                    <lable for="contact"></lable>
+                    <input type="number" name="contact" value="" required>
+
+                    <lable for="email"></lable>
+                    <input type="email" name="email" value="" required>
+
+                    <label for="event-name">Event Name</label>
+                    <input type="text" id="evnt-name" name="event-name" required>
+
+                     <label for="event-type">Event Type:</label>
+                        <select id="event-type" name="event-type" required>
+                            <option value="">Select an event type</option>
+                            <option value="conference">Conference</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="party">Party</option>
+                            <option value="concert">Concert</option>
+                        </select>
+
+                        <label for="event-location">Event Location:</label>
+                        <input type="text" id="event-location" name="event-location" required>
+
+                        <label for="event-date">Event Date:</label>
+                        <input type="date" id="event-date" name="event-date" required>
+
+                        <label for="visibility"></label>
+                        <input type="radio" name="visiblity" value="Public">Public
+                        <input type="radio" name="visiblity" value="Private">Private
+
+                        <label for="ticket"></label>
+                        <input type="radio" name="ticket" value="Yes">Yes 
+                        <input type="radio" name="ticket" value="No">No
+
+                        <label for="event-details">Event Details:</label>
+                        <textarea id="event-details" name="event-details" rows="4" required></textarea>
+
+                        <button>Cancel</button>
+                        <button>Confirm</button>
+      </div>
+
+      <!-- pop up for up comming event -->
+       <div class="upcoming-popup">
+        <h2>Event Name</h2>
+        <p><strong>type</strong> xyz</p>
+        <p><strong>location</strong> patna</p>
+        <input type="date" name="date" value=""><button>change</button> 
+        <p><strong>Visiblity</strong> private</p>
+        <p><strong>Ticket: </strong>200</p>
+        <button>Cancel</button>
+        <button>Mark Complete</button>
+       </div>
+
+  </body>
+</html>

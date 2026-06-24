@@ -1,0 +1,214 @@
+:root {
+    --primary: #5c4d9d;
+    --primary-dark: #46367c;
+    --primary-soft: #efeaff;
+    --text: #2f2d3d;
+    --muted: #6b6a86;
+    --border: #e7e3f3;
+    --bg: linear-gradient(135deg, #f6f4ff 0%, #f1ecec 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.dashboard-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.dashboard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: 0 10px 35px rgba(92, 77, 157, 0.08);
+}
+
+.dashboard-top h3 {
+    font-size: 1.2rem;
+}
+
+.dashboard-top button {
+    border-radius: 999px;
+    background: var(--primary);
+    width: 110px;
+    height: 42px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.dashboard-top button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    cursor: pointer;
+}
+
+.user-details,
+.action-card {
+    margin-top: 18px;
+    padding: 22px 24px;
+    background: #fff;
+    color: var(--text);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+}
+
+.user-details h4 {
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.user-details p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+}
+
+.action-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 6px;
+    margin-bottom: 18px;
+    background: var(--primary-soft);
+    border-radius: 999px;
+    width: fit-content;
+}
+
+.action-tabs button {
+    background: transparent;
+    color: var(--primary);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 999px;
+    height: 40px;
+    padding: 0 16px;
+    transition: all 0.2s ease;
+}
+
+.action-tabs button.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(92, 77, 157, 0.25);
+}
+
+.panel {
+    display: none;
+}
+
+.panel.active {
+    display: block;
+}
+
+.booking-history table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.booking-history th,
+.booking-history td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.booking-history th {
+    background: #f8f7ff;
+    color: var(--primary-dark);
+}
+
+.booking-history tr:last-child td {
+    border-bottom: none;
+}
+
+.book-event form {
+    display: grid;
+    gap: 12px;
+}
+
+.book-event label {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.book-event input,
+.book-event select,
+.book-event textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font: inherit;
+    color: var(--text);
+    background: #fcfbff;
+}
+
+.book-event input:focus,
+.book-event select:focus,
+.book-event textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(92, 77, 157, 0.12);
+}
+
+.book-event button {
+    margin-top: 8px;
+    width: fit-content;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.book-event button:hover {
+    background: var(--primary-dark);
+}
+
+@media (max-width: 700px) {
+    .dashboard-shell {
+        padding: 14px;
+    }
+
+    .dashboard-top,
+    .user-details,
+    .action-card {
+        padding: 16px;
+    }
+
+    .dashboard-top {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .action-tabs {
+        flex-direction: column;
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .action-tabs button {
+        width: 100%;
+    }
+}
