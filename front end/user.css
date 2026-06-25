@@ -86,7 +86,7 @@ body {
     padding: 6px;
     margin-bottom: 18px;
     background: var(--primary-soft);
-    border-radius: 999px;
+    border-radius: 50px;
     width: fit-content;
 }
 
