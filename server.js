@@ -5,7 +5,10 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 
-const adminRoutes = require("./routes/admin")
+const adminRoutes = require("./routes/admin");
+const userRoutes = require("./routes/user.js");
+const homeRoutes = require("./routes/home.js");
+const loginRoutes = require("./routes/login.js");
 
 const app = express();
 
@@ -16,7 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+app.use("/", homeRoutes);
+app.use("/login", loginRoutes);
 app.use("/admin", adminRoutes);
+app.use("/user", userRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log("Server is started on port 3000!!");

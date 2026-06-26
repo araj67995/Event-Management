@@ -266,7 +266,8 @@ tr:hover td {
 .select-month button,
 .quick-book button,
 .popup button,
-.upcoming-popup button {
+.upcoming-popup button,
+.past-popup button {
     min-height: 42px;
     padding: 0 18px;
     border-radius: 999px;
@@ -280,7 +281,8 @@ tr:hover td {
 .select-month button:hover,
 .quick-book button:hover,
 .popup button:hover,
-.upcoming-popup button:hover {
+.upcoming-popup button:hover,
+.past-popup button:hover {
     background: var(--primary-dark);
     box-shadow: 0 8px 18px rgba(92, 77, 157, 0.2);
     transform: translateY(-1px);
@@ -630,7 +632,8 @@ textarea:focus {
 }
 
 .popup,
-.upcoming-popup {
+.upcoming-popup,
+.past-popup {
     display: none;
     position: fixed;
     left: 50%;
@@ -668,7 +671,9 @@ textarea:focus {
 }
 
 .upcoming-popup.active,
-.upcoming-popup.open {
+.upcoming-popup.open,
+.past-popup.active,
+.past-popup.open {
     display: block;
     padding: 56px 22px 22px;
 }
@@ -701,18 +706,21 @@ textarea:focus {
     transform: none;
 }
 
-.upcoming-popup h2 {
+.upcoming-popup h2,
+.past-popup h2 {
     padding-right: 48px;
     margin-bottom: 14px;
     color: var(--primary-dark);
 }
 
-.upcoming-popup p {
+.upcoming-popup p,
+.past-popup p {
     margin: 10px 0;
     color: var(--muted);
 }
 
-.upcoming-popup input[type="date"] {
+.upcoming-popup input[type="date"],
+.past-popup input[type="date"] {
     width: min(100%, 240px);
     margin: 8px 8px 8px 0;
 }
@@ -742,6 +750,10 @@ textarea:focus {
     gap: 12px;
 }
 
+.past-popup .upcoming-action-panel {
+    margin-top: 16px;
+}
+
 .upcoming-action-panel h3,
 .upcoming-action-panel textarea,
 .upcoming-action-panel button,
@@ -761,12 +773,14 @@ textarea:focus {
 }
 
 .upcoming-popup .cancel-btn,
+.past-popup .cancel-btn,
 .popup .cancel-btn {
     background: var(--danger-soft);
     color: var(--danger);
 }
 
 .upcoming-popup .cancel-btn:hover,
+.past-popup .cancel-btn:hover,
 .popup .cancel-btn:hover {
     background: #ffe1e1;
 }
