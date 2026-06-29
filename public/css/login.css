@@ -71,6 +71,12 @@ body {
     gap: 12px
 }
 
+.form-error {
+    color: red;
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .form.hidden {
     display: none
 }

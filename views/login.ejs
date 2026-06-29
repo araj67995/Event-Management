@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sign in — Event Management</title>
-        <link rel="stylesheet" href="css/login.css" />
+        <link rel="stylesheet" href="/css/login.css" />
     </head>
     <body>
         <main class="auth-page">
@@ -21,8 +21,8 @@
                             <button id="signup-btn" class="tab" aria-pressed="false">Sign Up</button>
                         </div>
 
-                        <form id="login-form" class="form" method="post" action="login.php">
-                            <label for="username">Email or Username</label>
+                        <form id="login-form" class="form" method="post" action="/login">
+                            <label for="username">Email or Phone</label>
                             <input id="username" name="username" type="text" required autocomplete="username" />
 
                             <label for="password">Password</label>
@@ -38,7 +38,8 @@
             
                         </form>
 
-                        <form id="signup-form" class="form hidden signup-form" method="post" action="signup.php">
+                        <form id="signup-form" class="form hidden signup-form" method="post" action="/login/signup"">
+                            <p class="form-error"><%= signupError %></p>
                             <label for="new-name">Full name</label>
                             <input id="new-name" name="name" type="text" required />
 
@@ -55,42 +56,16 @@
                         </form>
                     </div>
 
-                    <div class="auth-right">
-                        <div class="welcome">
-                            <h2>Welcome back</h2>
-                            <p>Sign in to manage events, registrations, and attendees. New here? Create an account — it only takes a minute.</p>
-                        </div>
-                        <div class="image-credits">Photo by Unsplash</div>
-                    </div>
                 </div>
             </div>
         </main>
 
         <script>
-            const loginBtn = document.getElementById('login-btn');
-            const signupBtn = document.getElementById('signup-btn');
-            const loginForm = document.getElementById('login-form');
-            const signupForm = document.getElementById('signup-form');
-
-            function showLogin() {
-                loginForm.classList.remove('hidden');
-                signupForm.classList.add('hidden');
-                loginBtn.classList.add('active');
-                signupBtn.classList.remove('active');
-            }
-
-            function showSignup() {
-                signupForm.classList.remove('hidden');
-                loginForm.classList.add('hidden');
-                signupBtn.classList.add('active');
-                loginBtn.classList.remove('active');
-            }
-
-            loginBtn.addEventListener('click', showLogin);
-            signupBtn.addEventListener('click', showSignup);
-
-            // default
-            showLogin();
+            window.activeTab = "<%= activeTab || 'login' %>";
         </script>
+
+        <script src="/js/login.js"></script>
+            
+      
     </body>
 </html>

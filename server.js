@@ -1,9 +1,11 @@
 require('dotenv').config();
 
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
+
 
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/user.js");
@@ -17,7 +19,7 @@ mongoose.connect("mongodb://localhost:27017/Event-Management");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", homeRoutes);
 app.use("/login", loginRoutes);
