@@ -22,6 +22,7 @@
                         </div>
 
                         <form id="login-form" class="form" method="post" action="/login">
+                            <p class="form-error"><%= loginError %></p>
                             <label for="username">Email or Phone</label>
                             <input id="username" name="username" type="text" required autocomplete="username" />
 
