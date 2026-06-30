@@ -29,12 +29,15 @@
 
             <div id="enquire-panel" class="panel active">
                 <div class="book-event">
-                    <form id="booking-form">
+                    <form id="booking-form" method="post" action="/user">
+                        <input type="hidden" name="name" value="<%= user.name %>">
+                        <input type="hidden" name="email" value="<%= user.email %>">
+                        <input type="hidden" name="phone" value="<%= user.phone %>">
                         <label for="event-name">Event Name:</label>
-                        <input type="text" id="event-name" name="event-name" required>
+                        <input type="text" id="event-name" name="EventName" required>
 
                         <label for="event-type">Event Type:</label>
-                        <select id="event-type" name="event-type" required>
+                        <select id="event-type" name="type" required>
                             <option value="">Select an event type</option>
                             <option value="conference">Conference</option>
                             <option value="wedding">Wedding</option>
@@ -43,13 +46,13 @@
                         </select>
 
                         <label for="event-location">Event Location:</label>
-                        <input type="text" id="event-location" name="event-location" required>
+                        <input type="text" id="event-location" name="location" required>
 
                         <label for="event-date">Event Date:</label>
-                        <input type="date" id="event-date" name="event-date" required>
+                        <input type="date" id="event-date" name="date" required>
 
                         <label for="event-details">Event Details:</label>
-                        <textarea id="event-details" name="event-details" rows="4" required></textarea>
+                        <textarea id="event-details" name="details" rows="4" required></textarea>
 
                         <button type="submit">Enquire</button>
                     </form>
