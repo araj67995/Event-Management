@@ -1,6 +1,12 @@
+require('dotenv').config();
+
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user.js");
+const bcrypt = require("bcrypt");
+const User = require("../models/user");
+const {capitalizeWords, formatMonthYear} = require("../utils/date");
+
+const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
 
 router.get("/", (req, res) => {
   res.render("login", {
@@ -13,7 +19,7 @@ router.get("/", (req, res) => {
 // create user
 router.post("/signup", async (req, res) => {
   try {
-    const { email, phone } = req.body;
+    const {name, email, phone, password } = req.body;
 
     const existingUser = await User.findOne({
       $or: [
@@ -40,7 +46,16 @@ router.post("/signup", async (req, res) => {
       });
     }
 
-    const user = new User(req.body);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+   
+    const user = new User({
+      name: capitalizeWords(name),
+      email,
+      phone, 
+      password: hashedPassword,
+      date: formatMonthYear(new Date()),
+    });
     await user.save();
 
     return res.redirect("/login");
@@ -68,19 +83,38 @@ router.post("/", async (req, res) => {
       });
     }
 
-    if(user.password === password) {
-        if(user.role === "User"){
-            res.redirect("/user");
-        } else if(user.role === "Admin") {
-            res.redirect("/admin");
-        }
-    } else {
-        res.render("login", {
-            loginError: "Invalid Password",
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+          return res.render("login", {
+            loginError: "Incorrect password.",
             signupError: "",
             activeTab: "login"
-        })
+          });
+        }
+
+    // Set session data
+    req.session.userId = user._id;
+
+     let toRedirect = "";
+
+    switch (user.role) {
+      case "User":
+        toRedirect = `/User`;
+        break;
+
+      case "admin":
+        toRedirect = `/admin`;
+        break;
+
+      default:
+        return res.render("login", {
+          loginError: "Error! Please try again.",
+        });
     }
+
+    res.redirect(toRedirect);
+
 
   } catch (err) {
     console.log(err);
